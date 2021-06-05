@@ -39,7 +39,7 @@ router.post('/', (req,res) => {
     // console.log('urls inside post is',urls);
     // console.log('shortUrl inside post is',shortUrl);
     // console.log('longUrl inside post is',longUrl);
-    res.send({ shortUrl: `http://localhost:3000/urls/${shortUrl}` });
+    res.send({ shortUrl: `https://ur--l.herokuapp.com/urls/${shortUrl}` });
 });
 router.get('/', (req, res) => {
     res.send(urls);

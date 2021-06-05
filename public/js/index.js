@@ -6,9 +6,9 @@ inputOutputUrl.addEventListener('input', () => {
     console.log(inputOutputUrl.value);
 });
 shortenUrlButton.addEventListener('click', () => {
-    const urlValue = 'http://localhost:3000/urls';
+    const urlValue = 'https://ur--l.herokuapp.com/urls';
     axios
-        .post('http://localhost:3000/urls/', {
+        .post('https://ur--l.herokuapp.com//urls/', {
             longUrl: `${inputOutputUrl.value}`,
         })
         .then((response) => {
