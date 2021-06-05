@@ -28,10 +28,11 @@ router.get('/:shortUrlId', (req, res) => {
     // res.send(urls[shortUrlId]);
 });
 
-router.post('/', (req,res) => {
-  // console.log('req inside port is',req)
+router.post('/', (req, res) => {
+    // console.log('req inside port is',req)
     const data = req.body;
     // console.log('data inside post is', data)
+    // eslint-disable-next-line prefer-destructuring
     const longUrl = data.longUrl;
     const shortUrl = shortid.generate();
 

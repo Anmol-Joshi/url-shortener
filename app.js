@@ -5,14 +5,14 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 const urls = require('./urls');
-const {urls:urlData} = require('./url_data')
+const { urls: urlData } = require('./url_data');
 
-app.use(express.json())
+app.use(express.json());
 
 // app.get('/', (req, res) => {
 //     res.send('Hello World');
 // });
-app.use(express.static('public', { redirect : false }))
+app.use(express.static('public', { redirect: false }));
 
 app.get('/u/:shortUrlId', (req, res) => {
     const longUrl = urlData[req.params.shortUrlId];
@@ -29,7 +29,6 @@ app.get('/u/:shortUrlId', (req, res) => {
     // console.log(req.params.shortUrlId)
     // res.send(urls[shortUrlId]);
 });
-
 
 app.use('/urls', urls);
 

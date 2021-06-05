@@ -5,20 +5,30 @@ const shortenUrlButton = document.querySelector('#shorten-url-button');
 inputOutputUrl.addEventListener('input', () => {
     console.log(inputOutputUrl.value);
 });
+let flag = true;
 shortenUrlButton.addEventListener('click', () => {
-    const urlValue = 'https://ur--l.herokuapp.com/urls';
-    axios
-        .post('https://ur--l.herokuapp.com/urls/', {
-            longUrl: `${inputOutputUrl.value}`,
-        })
-        .then((response) => {
-            // console.log('response.data is',response.data);
-            console.log('response.data.shortUrl is', response.data.shortUrl);
-            inputOutputUrl.value = response.data.shortUrl;
-        })
-        .catch((error) => {
-            console.log(error);
-        });
+    if (flag) {
+        // const urlValue = 'https://ur--l.herokuapp.com/urls';
+        // eslint-disable-next-line no-undef
+        axios
+            .post('https://ur--l.herokuapp.com/urls/', {
+                longUrl: `${inputOutputUrl.value}`,
+            })
+            .then((response) => {
+                // console.log('response.data is',response.data);
+                console.log('response.data.shortUrl is', response.data.shortUrl);
+                inputOutputUrl.value = response.data.shortUrl;
+                shortenUrlButton.value = 'Copy';
+                flag = false;
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    } else {
+        const textarea = document.getElementById('textarea');
+        textarea.select();
+        document.execCommand('copy');
+    }
 
     // fetch(request).then(res => res.json()).then((json) => {
     //   // console.log(json)
