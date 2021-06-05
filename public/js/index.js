@@ -8,7 +8,7 @@ inputOutputUrl.addEventListener('input', () => {
 shortenUrlButton.addEventListener('click', () => {
     const urlValue = 'https://ur--l.herokuapp.com/urls';
     axios
-        .post('https://ur--l.herokuapp.com//urls/', {
+        .post('https://ur--l.herokuapp.com/urls/', {
             longUrl: `${inputOutputUrl.value}`,
         })
         .then((response) => {
