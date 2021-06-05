@@ -25,7 +25,7 @@ shortenUrlButton.addEventListener('click', () => {
                 console.log(error);
             });
     } else {
-        const textarea = document.getElementById('textarea');
+        const textarea = document.getElementById('input-output-url');
         textarea.select();
         document.execCommand('copy');
     }
