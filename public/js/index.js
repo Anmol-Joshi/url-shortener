@@ -8,14 +8,12 @@ inputOutputUrl.addEventListener('input', () => {
 let flag = true;
 shortenUrlButton.addEventListener('click', () => {
     if (flag) {
-        // const urlValue = 'https://ur--l.herokuapp.com/urls';
         // eslint-disable-next-line no-undef
         axios
             .post('https://ur--l.herokuapp.com/urls/', {
                 longUrl: `${inputOutputUrl.value}`,
             })
             .then((response) => {
-                // console.log('response.data is',response.data);
                 console.log('response.data.shortUrl is', response.data.shortUrl);
                 inputOutputUrl.value = response.data.shortUrl;
                 shortenUrlButton.value = 'Copy';
@@ -29,11 +27,4 @@ shortenUrlButton.addEventListener('click', () => {
         textarea.select();
         document.execCommand('copy');
     }
-
-    // fetch(request).then(res => res.json()).then((json) => {
-    //   // console.log(json)
-    //   inputOutputUrl.value=json.shortUrl;
-    //   console.log(json.shortUrl)
-    // });
 });
-// });
