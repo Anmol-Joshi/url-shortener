@@ -8,16 +8,19 @@ const { urls } = require('./url_data');
 const router = express.Router();
 
 router.get('/:shortUrlId', (req, res) => {
-    console.log(urls);
-    // console.log(req.params.shortUrlId)
+    // console.log('**inside get shortUrlId is', req.params.shortUrlId);
     const longUrl = urls[req.params.shortUrlId];
+    // console.log('**inside get longUrl is ', longUrl);
+    // console.log('data inside req.params is',req.params)
+    // console.log('data inside req.params.shortUrlId is',req.params.shortUrlId)
     if (longUrl) {
-        res.send({
-            shortUrl: `http://localhost:3000/urls/${req.params.shortUrlId}`,
-            longUrl: longUrl,
-        });
+        // res.send({
+        //     shortUrl: `http://localhost:3000/urls/${req.params.shortUrlId}`,
+        //     longUrl: longUrl,
+        // });
         // console.log(`longUrl is ${longUrl}`);
-        // res.redirect(longUrl);
+        // console.log(longUrl)
+        res.redirect(`${longUrl}`);
     } else {
         res.status(404).send("Url doesn't exist");
     }
@@ -26,10 +29,16 @@ router.get('/:shortUrlId', (req, res) => {
 });
 
 router.post('/', (req,res) => {
+  // console.log('req inside port is',req)
     const data = req.body;
+    // console.log('data inside post is', data)
     const longUrl = data.longUrl;
     const shortUrl = shortid.generate();
+
     urls[shortUrl] = longUrl;
+    // console.log('urls inside post is',urls);
+    // console.log('shortUrl inside post is',shortUrl);
+    // console.log('longUrl inside post is',longUrl);
     res.send({ shortUrl: `http://localhost:3000/urls/${shortUrl}` });
 });
 router.get('/', (req, res) => {
