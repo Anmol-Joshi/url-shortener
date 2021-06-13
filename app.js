@@ -8,6 +8,11 @@ const urls = require('./urls');
 const { urls: urlData } = require('./url_data');
 
 app.use(express.json());
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+});
 app.use(express.static('public', { redirect: false }));
 
 app.get('/u/:shortUrlId', (req, res) => {
