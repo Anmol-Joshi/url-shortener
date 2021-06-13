@@ -25,7 +25,7 @@ router.post('/', (req, res) => {
     urls[shortUrl] = longUrl;
     res.send({ shortUrl: `https://ur--l.herokuapp.com/urls/${shortUrl}` });
 });
-router.get('/urls', (req, res) => {
+router.get('/', (req, res) => {
     res.send(urls);
 });
 
