@@ -1,5 +1,5 @@
 * {
-  background-color: #005792;
+  background-color: #fbf9ff;
 }
 
 .input-output-group {
@@ -10,10 +10,12 @@
   font-family: 'Nunito Sans', sans-serif;
 }
 
+h1 {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
 .button {
   background-color: #222;
-
-  /* black; */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -40,5 +42,29 @@
 }
 
 .input::placeholder {
+  color: black;
+}
+
+a {
+  color: black;
+}
+
+#recentURL {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 30px;
+  border: 2px solid black;
+  padding: 5px;
+}
+
+td a {
   color: black;
 }

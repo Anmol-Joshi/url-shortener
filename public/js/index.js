@@ -1,10 +1,8 @@
-/* eslint-disable no-console */
-
 const inputOutputUrl = document.querySelector('#input-output-url');
 const shortenUrlButton = document.querySelector('#shorten-url-button');
-inputOutputUrl.addEventListener('input', () => {
-    console.log(inputOutputUrl.value);
-});
+// inputOutputUrl.addEventListener('input', () => {
+//     console.log(inputOutputUrl.value);
+// });
 let flag = true;
 shortenUrlButton.addEventListener('click', () => {
     if (flag) {
@@ -14,13 +12,13 @@ shortenUrlButton.addEventListener('click', () => {
                 longUrl: `${inputOutputUrl.value}`,
             })
             .then((response) => {
-                console.log('response.data.shortUrl is', response.data.shortUrl);
+                // console.log('response.data.shortUrl is', response.data.shortUrl);
                 inputOutputUrl.value = response.data.shortUrl;
                 shortenUrlButton.value = 'Copy';
                 flag = false;
             })
             .catch((error) => {
-                console.log(error);
+                // console.log(error);
             });
     } else {
         const textarea = document.getElementById('input-output-url');
